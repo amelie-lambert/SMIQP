@@ -1,0 +1,26 @@
+The build process for SMIQCP should be fairly automatic as it uses GNU autotools.   
+
+SMIQCP is compiled and installed using the commands:
+./configure   
+make  
+
+The configure script attempts to find all of the machine specific settings (compiler, libraries,...) necessary to compile and run the code. Although configure should find most of the standard ones, you may have to manually specify a few of the settings. The options for the configure script can be found by issuing the command
+
+./configure --help
+
+For a more in depth description of these options, the reader is invited to refer to the COIN-OR BuildTools trac page.
+
+Specifying the location of Cplex and/or Scip libraries 
+If you have Cplex or Scip installed on your machine, you may want to use it as the Mixed Integer Quadratic Programming subsolver. To do so you have to specify the location of the header files and libraries. You have to specify the location of the header files directory by passing it as an argument to the configure script.
+
+For this, specify the location of the Cplex/Scip header files by using the argument --with-cplex-cflags and --with-scip-cflags and the location of the Cplex /Scip library with --with-cplex-lflags and --with-scip-lflags (note that on the Linux platform you will also need to add -lpthread -lm as an argument to --with-cplexlib).
+
+For example, on a Linux machine if Cplex is installed in /usr/ilog, and scip in /usr/local you would invoke configure with the arguments as follows:
+
+./configure --with-cplex-cflags="/usr/ilog/CPLEX_Studio129/cplex/include" --with-cplex-lflags="/usr/ilog/CPLEX_Studio129/cplex/lib/x86-64_linux/static_pic" --with-scip-lflags="/usr/local/include/scip" --with-scip-cflags="/usr/local/lib"
+
+ 
+ 
+
+
+
