@@ -1,0 +1,14 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/coin-or
+
+Name: IPOPT
+Description: Interior Point Optimizer
+URL: https://github.com/coin-or/Ipopt
+Version: 3.13.0
+Libs: -L${libdir} -lipopt
+Libs.private:   -lm  -ldl
+Cflags: -I${includedir}
+Requires:
+Requires.private: coinhsl lapack blas 
