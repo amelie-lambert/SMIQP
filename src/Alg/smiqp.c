@@ -604,9 +604,9 @@ int main (int argc, char **argv)
       #ifdef HAVE_CPLEX
 	miqcr_cplex();
       #endif
-	if(IS_CPLEX ==0)
-	  #ifdef HAVE_SCIP
-	  miqcr_scip();
+	#ifdef HAVE_SCIP
+	    if(IS_CPLEX ==0)
+	  	miqcr_scip();
 	#endif
       time_bb = time(NULL);
 
